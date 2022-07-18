@@ -19,6 +19,14 @@ MongoClient.connect(dbConnectionString)
         db= client.db(dbName)
         collection= db.collection('comments')
     })
+//--MIDDLEWARE--
+
+app.set('view engine', 'ejs')
+app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(cors())
+
 
 //--CREATE PORT--
 
